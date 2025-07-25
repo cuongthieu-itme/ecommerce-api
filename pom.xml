@@ -63,14 +63,17 @@
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
 
-        <!-- XÓA: jaxb-api vì không cần thiết cho JDK 17+ và Spring Boot 3+ -->
-        <!--
+        <!-- JAXB for Java 11+ compatibility (fix javax.xml.bind.DatatypeConverter error) -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
-        -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.1</version>
+        </dependency>
 
 
         <!-- Test (optional) -->
