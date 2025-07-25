@@ -41,6 +41,15 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**").permitAll() // Public: signup/login
                 .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll() // Public: view products
 
+                // Cho phép truy cập swagger UI và openapi docs
+                .requestMatchers(
+                    "/v3/api-docs/**",
+                    "/swagger-ui.html",
+                    "/swagger-ui/**",
+                    "/swagger-resources/**",
+                    "/webjars/**"
+                ).permitAll()
+
                 // Role-based endpoints
                 .requestMatchers("/api/cart/**").hasRole("CUSTOMER")
                 .requestMatchers("/api/orders/create").hasRole("CUSTOMER")
