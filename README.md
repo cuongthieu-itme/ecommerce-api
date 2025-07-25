@@ -111,35 +111,6 @@ curl -X POST \
 
 ---
 
-## 📚 Một số API chính
-
-### Auth
-
-- `POST /api/auth/signup` — Đăng ký
-- `POST /api/auth/login` — Đăng nhập
-
-### Products
-
-- `GET /api/products` — Xem sản phẩm
-- `POST /api/products` — Thêm sản phẩm (**Admin**)
-- `PUT /api/products/{id}` — Sửa sản phẩm (**Admin**)
-- `DELETE /api/products/{id}` — Xóa sản phẩm (**Admin**)
-
-### Cart (Customer only)
-
-- `POST /api/cart/add` — Thêm vào giỏ
-- `DELETE /api/cart/remove/{productId}` — Xóa khỏi giỏ
-- `GET /api/cart` — Xem giỏ
-- `DELETE /api/cart/clear` — Xóa toàn bộ giỏ
-
-### Orders
-
-- `POST /api/orders/create` — Đặt hàng (**Customer**)
-- `GET /api/orders/my` — Xem đơn của tôi (**Customer**)
-- `GET /api/orders` — Xem tất cả đơn (**Admin**)
-
----
-
 ## 📩 Liên hệ
 
 - Email: support@ecommerce.com
