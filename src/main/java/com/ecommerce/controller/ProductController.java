@@ -3,6 +3,7 @@ package com.ecommerce.controller;
 import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "Product", description = "Quản lý và xem thông tin sản phẩm")
 @RestController
 @RequestMapping("/api/products")
