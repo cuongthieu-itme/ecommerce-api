@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Map;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @CrossOrigin(origins = "*")
+@Tag(name = "Authentication", description = "Đăng ký, đăng nhập và xác thực người dùng")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

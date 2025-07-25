@@ -2,6 +2,7 @@ package com.ecommerce.controller;
 
 import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Product", description = "Quản lý và xem thông tin sản phẩm")
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -43,7 +45,7 @@ public class ProductController {
         productService.deleteProduct(productId);
         return ResponseEntity.ok("Product deleted successfully");
     }
-    
+
     // admin && customer : list item by id
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {

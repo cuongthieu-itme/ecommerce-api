@@ -6,6 +6,7 @@ import com.ecommerce.dto.CartResponseDTO.CartItemSummary;
 import com.ecommerce.model.Cart;
 import com.ecommerce.security.CustomUserDetails;
 import com.ecommerce.service.CartService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Cart", description = "Quản lý giỏ hàng của khách hàng")
 @RestController
 @RequestMapping("/api/cart")
 @CrossOrigin(origins = "*")
@@ -21,7 +23,7 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
-    
+
     // customer : add item to cart
     @PostMapping("/add")
     @PreAuthorize("hasRole('CUSTOMER')")
@@ -30,7 +32,7 @@ public class CartController {
         cartService.addToCart(userId, cartItemDTO.getProductId(), cartItemDTO.getQuantity());
         return ResponseEntity.ok("Item added to cart");
     }
-    
+
     // customer : check cart-item
     @GetMapping("/my-cart")
     @PreAuthorize("hasRole('CUSTOMER')")
@@ -39,7 +41,7 @@ public class CartController {
         Cart cart = cartService.getCartByUserId(userId);
         return ResponseEntity.ok(convertToDTO(cart));
     }
-    
+
     // not in use (not necessary)
     @GetMapping("/{userId}")
     @PreAuthorize("hasRole('ADMIN')")
@@ -47,7 +49,7 @@ public class CartController {
         Cart cart = cartService.getCartByUserId(userId);
         return ResponseEntity.ok(convertToDTO(cart));
     }
-    
+
     // customer : clear cart
     @DeleteMapping("/clear")
     @PreAuthorize("hasRole('CUSTOMER')")
@@ -56,7 +58,7 @@ public class CartController {
         cartService.clearCart(userId);
         return ResponseEntity.ok("Cart cleared");
     }
-    
+
     // customer : update item in cart
     @PutMapping("/update")
     @PreAuthorize("hasRole('CUSTOMER')")
@@ -67,7 +69,7 @@ public class CartController {
         Cart updatedCart = cartService.updateCartItemQuantity(userId, productId, quantity);
         return ResponseEntity.ok(convertToDTO(updatedCart));
     }
-    
+
     // customer : delete item from cart
     @DeleteMapping("/remove")
     @PreAuthorize("hasRole('CUSTOMER')")

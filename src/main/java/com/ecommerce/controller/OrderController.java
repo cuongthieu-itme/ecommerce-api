@@ -4,6 +4,7 @@ import com.ecommerce.dto.OrderDTO;
 import com.ecommerce.model.Order;
 import com.ecommerce.service.OrderService;
 import com.ecommerce.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,6 +14,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Tag(name = "Order", description = "Quản lý đơn hàng cho khách hàng và admin")
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
